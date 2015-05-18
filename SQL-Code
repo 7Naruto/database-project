@@ -1,28 +1,25 @@
 CREATE TABLE Film (
-  FilmID INT NOT NULL,
+  FilmID INT NOT NULL PRIMARY KEY,
   Filmtitel VARCHAR(100) NOT NULL,
   Regisseur VARCHAR(100) NULL,
   Bewertung TINYINT NULL,
   Erscheinungsjahr SMALLINT NULL,
-  PRIMARY KEY(FilmID)
 );
 
 CREATE TABLE Schauspieler (
-  SchauspielerID INT NOT NULL,
+  SchauspielerID INT NOT NULL PRIMARY KEY,
   Name VARCHAR(100) NOT NULL,
-  PRIMARY KEY(SchauspielerID)
 );
 
 CREATE TABLE Genre (
-  GenreID SMALLINT NOT NULL,
+  GenreID SMALLINT NOT NULL PRIMARY KEY,
   Genrename VARCHAR(32),
-  PRIMARY KEY(GenreID)
 );
 
 CREATE TABLE Filmteilnahme (
-  FilmID
-  SchauspielerID
-  ...
+  FilmID INT NOT NULL,
+  SchauspielerID INT NOT NULL,
+  FOREIGN KEY (FilmID) REFERENCES Film(FilmID),
+  FOREIGN KEY (SchauspielerID) REFERENCES Schauspieler(SchauspielerID),
+  CONSTRAINT Teilnahme PRIMARY KEY (FilmID, Schauspieler)
 );
-
-...
