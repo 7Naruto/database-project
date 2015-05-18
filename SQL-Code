@@ -1,6 +1,6 @@
 CREATE TABLE Filme (
   FilmID INT NOT NULL PRIMARY KEY,
-  Filmtitel VARCHAR(100) NOT NULL,
+  Titel VARCHAR(100) NOT NULL,
   Regisseur VARCHAR(100) NULL,
   Bewertung TINYINT NULL,
   Erscheinungsjahr SMALLINT NULL,
